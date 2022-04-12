@@ -30,7 +30,7 @@ def write_file(path, data):
 def append_to_file(path, data):
     with open(path, 'a') as file:
         file.write(data + '\n')
-        # /n adds a new line so each link is on a new line
+        # \n adds a new line so each link is on a new line
 
 
 # Delete the contents of a file
