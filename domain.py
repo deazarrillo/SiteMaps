@@ -1,5 +1,5 @@
 import urllib
-from urlparse import urlparse
+from urllib.parse import urlparse
 
 
 # Get domain name (example.com)
