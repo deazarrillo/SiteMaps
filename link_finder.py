@@ -1,7 +1,6 @@
-import urlparse
-from HTMLParser import HTMLParser
-from urlparse import urlparse
-from urlparse import urljoin
+from html.parser import HTMLParser
+from urllib.parse import urlparse
+from urllib.parse import urljoin
 
 
 class LinkFinder(HTMLParser):
