@@ -11,8 +11,7 @@ Next steps:
 3. Current code is time consuming and not efficient. Need to implement heuristics as a way to create priority buckets for what type of URIs should be moved to the top of the crawler queue (i.e. whether a URI was visited by X years ago, institutional domain name, whether certain words appear in the URI like 'faculty' or 'directory', etc.) 
 
 
-**Current Crawler & Progress Notes:
-**
+**Current Crawler & Progress Notes:**
 _general.py -_
 As it stands, the program starts by taking two inputs: project name, and URL. 
 It creates a directory from the project name, as well as two files (queued & crawled) that sit within the project directory and only writes in unique URLs that are not currently in one of the two i/o files
