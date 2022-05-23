@@ -33,7 +33,7 @@ The spiders bypass external URLs from archive.org, as well as any URLs that do n
 _domain.py -_
 This part of the program parses the input URL to capture the domain name (for our purposes, archive.org) to ensure the spider only crawls pages with this domain name. Part of the filtering process in the spider.py file ensures the crawler stays within an additional domain by passing over any URL that does not include the HBCUs domain. 
 
-_main.py - _
+_main.py -_
 This file brings everything together while creating worker threads, defining jobs, and telling workers the criteria for doing jobs (i.e. crawling and scraping links - each link is a job)
 
 From this file, you can input PROJECT_NAME (university/directory name), and HOMEPAGE (the seed URL)
