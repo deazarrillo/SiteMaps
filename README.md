@@ -1,17 +1,21 @@
 # SiteMaps
 TimeMap crawler
 
-**Goal:**
-The goal of this crawler is twofold. First, to use a [timemap](https://github.com/HBCUMobility/datacollection/tree/main/timemaps/20220104) file as a crawl frontier in order to identify and collect the historical URIs which are missing from the given ttimemap, and second to identify the historical locations of faculty listings for the [HBCU Mobility](https://github.com/HBCUMobility) project. 
+## Goal
+The goal of this crawler is twofold:
 
-Next steps:
+1. Use a [TimeMap](https://github.com/HBCUMobility/datacollection/tree/main/timemaps/20220104) file as a crawl frontier in order to identify and collect the historical URIs which are missing from the given TimeMap
+2. Identify the historical locations of faculty listings for the [HBCU Mobility](https://github.com/HBCUMobility) project. 
 
-1. Current code takes only a single URI as input. Needs to be updated to work with timemap files and potentially additional archives. 
+## Next steps
+
+1. Current code takes only a single URI as input. Needs to be updated to work with TimeMap files and potentially additional archives. 
 2. Current code has the test site "howard.edu" filter hard coded into the script. May need updating to be more dynamic.
-3. Current code is time consuming and not efficient. Need to implement heuristics as a way to create priority buckets for what type of URIs should be moved to the top of the crawler queue (i.e. whether a URI was visited by X years ago, institutional domain name, whether certain words appear in the URI like 'faculty' or 'directory', etc.) 
+3. Current code is time consuming and not efficient. Need to implement heuristics as a way to create priority buckets for what type of URIs should be moved to the top of the crawler queue (i.e., whether a URI was visited by X years ago, institutional domain name, whether certain words appear in the URI like 'faculty' or 'directory', etc.) 
 
 
-**Current Crawler & Progress Notes:**
+## Current Crawler & Progress Notes
+
 _general.py -_
 As it stands, the program starts by taking two inputs: project name, and URL. 
 It creates a directory from the project name, as well as two files (queued & crawled) that sit within the project directory and only writes in unique URLs that are not currently in one of the two i/o files
@@ -34,7 +38,10 @@ _domain.py -_
 This part of the program parses the input URL to capture the domain name (for our purposes, archive.org) to ensure the spider only crawls pages with this domain name. Part of the filtering process in the spider.py file ensures the crawler stays within an additional domain by passing over any URL that does not include the HBCUs domain. 
 
 _main.py -_
-This file brings everything together while creating worker threads, defining jobs, and telling workers the criteria for doing jobs (i.e. crawling and scraping links - each link is a job)
+This file brings everything together while creating worker threads, defining jobs, and telling workers the criteria for doing jobs (i.e., crawling and scraping links - each link is a job)
 
 From this file, you can input PROJECT_NAME (university/directory name), and HOMEPAGE (the seed URL)
 
+## Caveats
+
+If you are encountering errors like `SSL: CERTIFICATE_VERIFY_FAILED` when running the code, you should install the certificates for you local Python. This can be done by running `/Applications/Python\ 3.10/Install\ Certificates.command` and adapting the execution to your version of Python and OS.
