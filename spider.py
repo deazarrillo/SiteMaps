@@ -65,6 +65,7 @@ class Spider:
         except UnicodeDecodeError as e:
             print('decoding error based on the UTF-8 assumption')
             print(page_url)
+            return set()
         except Exception as e:
             print(str(e))
             return set()
