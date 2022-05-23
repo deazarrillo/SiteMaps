@@ -34,9 +34,9 @@ class Spider:
         Spider.crawled = file_to_set(Spider.crawled_file)
 
     @staticmethod
-    def crawl_page(thread_name, page_url):
+    def crawl_page(thread_name, page_url, priority=10):
         if page_url not in Spider.crawled:
-            print(f'{thread_name} now crawling {page_url}')
+            print(f'{thread_name} now crawling {page_url} @ priority {priority}')
             print(f'Queue {str(len(Spider.queue))} | '
                   f'Crawled {str(len(Spider.crawled))}')
             Spider.add_links_to_queue(Spider.gather_links(page_url))
