@@ -1,4 +1,5 @@
 from urllib.request import urlopen
+import urllib.error
 from link_finder import LinkFinder
 from general import *
 
@@ -49,6 +50,7 @@ class Spider:
         html_string = ''
         try:
             response = urlopen(page_url)
+
             if 'text/html' \
                     or 'text/html; charset=UTF-8' \
                     or 'text/html; charset=iso-8859-1' in response.getheader('Content-Type'):
@@ -56,6 +58,13 @@ class Spider:
                 html_string = html_bytes.decode("utf-8")
             finder = LinkFinder(Spider.base_url, page_url)
             finder.feed(html_string)
+        except urllib.error.HTTPError as e:
+            print(page_url)
+            print('HTTPError: {}'.format(e.code))
+            return set()
+        except UnicodeDecodeError as e:
+            print('decoding error based on the UTF-8 assumption')
+            print(page_url)
         except Exception as e:
             print(str(e))
             return set()
