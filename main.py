@@ -6,7 +6,7 @@ from general import *
 
 PROJECT_NAME = 'howard'
 HOMEPAGE = 'https://web.archive.org/web/20000510121541/http://www.howard.edu/'
-#DOMAIN_NAME = get_domain_name(HOMEPAGE) # This will produce archive.org
+# DOMAIN_NAME = get_domain_name(HOMEPAGE) # This will produce archive.org
 DOMAIN_NAME = 'howard.edu'
 QUEUE_FILE = PROJECT_NAME + '/queue.txt'
 CRAWLED_FILE = PROJECT_NAME + '/crawled.txt'
