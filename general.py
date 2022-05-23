@@ -37,7 +37,6 @@ def append_to_file(path, data):
 def delete_file_contents(path):
     with open(path, 'w'):
         pass
-        # pass does nothing
 
 
 # Read a file and convert each line to set items
