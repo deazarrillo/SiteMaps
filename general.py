@@ -4,14 +4,14 @@ import os
 # Each website crawled is saved to a separate folder
 def create_project_dir(directory):
     if not os.path.exists(directory):
-        print('Creating project ' + directory)
+        print(f'Creating project {directory}')
         os.makedirs(directory)
 
 
 # Create queue and crawled files (if not created)
 def create_data_files(project_name, base_url):
-    queue = project_name + '/queue.txt'
-    crawled = project_name + '/crawled.txt'
+    queue = f'{project_name}/queue.txt'
+    crawled = f'{project_name}/crawled.txt'
     if not os.path.isfile(queue):
         write_file(queue, base_url)
     if not os.path.isfile(crawled):
@@ -37,7 +37,6 @@ def append_to_file(path, data):
 def delete_file_contents(path):
     with open(path, 'w'):
         pass
-        # pass does nothing
 
 
 # Read a file and convert each line to set items
@@ -57,5 +56,3 @@ def set_to_file(links, file):
     # links is new stuff, file is old stuff therefor we want to delete old stuff
     for link in sorted(links):
         append_to_file(file, link)
-
-
